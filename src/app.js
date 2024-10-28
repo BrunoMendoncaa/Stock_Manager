@@ -1,5 +1,6 @@
 import express from 'express'
 import ProductsController from './Controller/ProductsController.js'
+
 const app = express()
 app.use(express.json())
 
