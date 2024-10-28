@@ -1,12 +1,10 @@
 import express from 'express'
-import ProductsController from './Controller/ProductsController.js'
+import ProductsRouter from './Routers/ProductsRouters.js'
 
 const app = express()
-app.use(express.json())
 
-app.post('/products', ProductsController.create)
-app.get('/products', ProductsController.index)
-app.get('/products/:id', ProductsController.show)
-app.delete('/products/:id', ProductsController.delete)
+app.use(express.json())
+app.use(ProductsRouter)
+
 
 export default app
