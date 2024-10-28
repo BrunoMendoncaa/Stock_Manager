@@ -1,4 +1,4 @@
-import { CalculateValues } from "../Functions/Functions.js"
+import { CalculateValues } from "../Functions/ProductsFunctions.js"
 
 class ProductsRepository{
     constructor(){
