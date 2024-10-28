@@ -1,3 +1,5 @@
+import { CalculateValues } from "../Functions/Functions.js"
+
 class ProductsRepository{
     constructor(){
         this.products = [
@@ -12,7 +14,7 @@ class ProductsRepository{
     create(values){
         const {name, price, storage_count} = values
         const id = this.products.length +1
-        const value_amount = parseFloat(price) * storage_count
+        const value_amount = CalculateValues(price, storage_count)
         const result = {id,name, price, storage_count, value_amount}
         this.products.push(result)
         return result
