@@ -1,4 +1,5 @@
 import ProductsRepository from "../Repositories/ProductsRepositoryLocal.js"
+
 class ProductsController{
 
     create(request, response){
@@ -17,7 +18,10 @@ class ProductsController{
         response.json(result)
     }
 
-    update(request, response){}
+    update(request, response){
+        const result = ProductsRepository.update(request.params.id, request.body)
+        response.json( result )
+    }
 
     delete(request,response){
         const result = ProductsRepository.delete( request.params.id )
