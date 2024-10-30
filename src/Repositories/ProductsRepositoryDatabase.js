@@ -8,8 +8,11 @@ class ProductsRepositoryDatabase{
             const id = uuidv4()
             const {name, price, storage_count} = values
             const value_amount = CalculateValues(price, storage_count)
-            const result = {id, name, price, storage_count, value_amount}
-            const sql = create_sql(id,name,price,storage_count,value_amount)
+            const createdAt = new Date().toLocaleDateString('pt-BR')
+            
+            const result = {id, name, price, storage_count, value_amount, createdAt}
+            const sql = create_sql(id,name,price,storage_count,value_amount,createdAt)
+
             db.query(sql)
             return result
       }
@@ -26,9 +29,12 @@ class ProductsRepositoryDatabase{
       update(id, values){
             const {name, price, storage_count} = values
             const value_amount = CalculateValues(price, storage_count)
-            const sql = update_sql(name, id, price, storage_count, value_amount)
+            const changedAt = new Date().toLocaleDateString('pt-BR')
+            const result = {id, name, price, storage_count, value_amount, changedAt}
+            const sql = update_sql(name, id, price, storage_count, value_amount,changedAt)
+
+
             db.query(sql)
-            const result = {id, name, price, storage_count, value_amount}
             return result
       }
       delete(id){
