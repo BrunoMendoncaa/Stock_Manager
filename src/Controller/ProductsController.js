@@ -1,35 +1,32 @@
 import ProductsRepository from "../Repositories/ProductsRepositoryLocal.js"
+import ProductsRepositoryDatabase from "../Repositories/ProductsRepositoryDatabase.js"
 
 class ProductsController{
 
     create(request, response){
-        const result = ProductsRepository.create(request.body)
+        const result = ProductsRepositoryDatabase.create(request.body)
         response.status(201).json(result)
     }
 
-    index(request, response){
-        const result = ProductsRepository.findAll()
+    async index(request, response){
+        const result =  await ProductsRepositoryDatabase.findAll()
         response.json(result)
     }
 
-    show(request, response){
+    async show(request, response){
         const id = request.params.id
-        const result = ProductsRepository.findById(id)
+        const result = await ProductsRepositoryDatabase.findById(id)
         response.json(result)
     }
 
     update(request, response){
-        const result = ProductsRepository.update(request.params.id, request.body)
+        const result = ProductsRepositoryDatabase.update(request.params.id, request.body)
         response.json( result )
     }
 
     delete(request,response){
-        const result = ProductsRepository.delete( request.params.id )
-        if (result < 0) {
-            response.status(404).json({"msg":"id não encontrado"})
-        }else {
-            response.status(200).json({"msg":"item deletado"})
-        }
+        const result = ProductsRepositoryDatabase.delete( request.params.id )
+        response.status(200).send('OK')
     }
 }
 
