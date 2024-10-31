@@ -6,8 +6,8 @@
   "proxy": "http://localhost:3000",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "db": "node src/Database/Database.js",
-    "start":"node src/server.js"
+    "db": "node src/Database/DatabasePostgresql.js",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",

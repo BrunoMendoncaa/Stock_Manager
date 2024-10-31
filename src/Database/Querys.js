@@ -19,3 +19,16 @@ export function delete_sql(id){
       const sql = `delete from storage where product_id = '${id}'`
       return sql
 }
+
+export const create_storage_sql = `
+CREATE TABLE IF NOT EXISTS STORAGE (
+      product_id varchar(55) not null,
+      product_name varchar(25) not null,
+      product_price decimal(5,2) not null,
+      product_storage_count int not null,
+      storage_value_amount decimal(9,2) not null,
+      created_at varchar(25) not null,
+      changed_ate varchar(25),
+      PRIMARY KEY(product_id)
+)
+`
