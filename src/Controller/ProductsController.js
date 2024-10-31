@@ -1,4 +1,4 @@
-import ProductsRepositoryDatabase from "../Repositories/ProductsRepositoryDatabase.js"
+import ProductsRepository from "../Repositories/ProductsRepositoryLocal.js"
 
 class ProductsController{
 
